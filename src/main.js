@@ -11,8 +11,6 @@ const form = document.querySelector('.form');
 
 form.addEventListener('submit', onSubmitForm);
 
-hideLoader();
-
 function onSubmitForm(event) {
   event.preventDefault();
   const resInput = new FormData(form).get('search-text').trim();
@@ -24,7 +22,7 @@ function onSubmitForm(event) {
       position: `topRight`,
       maxWidth: `432px`,
     });
-    hideLoader();
+
     return;
   }
 
@@ -42,14 +40,12 @@ function onSubmitForm(event) {
           position: `topRight`,
           maxWidth: `432px`,
         });
-        hideLoader();
+
         return;
       }
       createGallery(hits);
-      hideLoader();
     })
     .catch(error => {
-      hideLoader();
       console.log(error.message);
       iziToast.show({
         message:
@@ -59,6 +55,9 @@ function onSubmitForm(event) {
         position: `topRight`,
         maxWidth: `432px`,
       });
+    })
+    .finally(() => {
+      hideLoader();
+      form.reset();
     });
-  form.reset();
 }

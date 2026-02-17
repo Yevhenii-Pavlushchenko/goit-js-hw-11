@@ -61,8 +61,8 @@ export function clearGallery() {
   gallery.innerHTML = '';
 }
 export function showLoader() {
-  loader.style.display = 'inline-block';
+  document.querySelector('.loader')?.classList.remove('is-hidden');
 }
 export function hideLoader() {
-  loader.style.display = 'none';
+  document.querySelector('.loader')?.classList.add('is-hidden');
 }
