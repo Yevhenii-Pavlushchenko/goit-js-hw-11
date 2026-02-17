@@ -76,7 +76,7 @@ main {
     & .list-item {
         display: flex;
         flex-direction: column;
-        width: calc((100% - 48px) / 3);
+        width: calc((100% - 54px) / 3);
         height: 200px;
         border: 1px solid #808080;
 
